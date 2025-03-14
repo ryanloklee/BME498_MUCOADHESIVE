@@ -56,7 +56,7 @@ void loop() {
             moving = false;
         } else if (stopped) {
             // If actuator is stopped, decide next action:
-            if (contractComplete || contractTime >= EXTEND_TIME) {  
+            if (contractComplete || contractTime > extendTime) {  
                 // If it was previously contracted, or contract time exceeds extend time, now extend
                 Serial.println("Extending Actuator...");
                 moveActuator(false);
@@ -68,8 +68,7 @@ void loop() {
             } else {  
                 // Otherwise, start contracting
                 Serial.println("Actuator Contracting...");
-                // Calculate contraction time based on how much time it has already extended
-                unsigned long remainingContractionTime = EXTEND_TIME - contractTime; // Contract for remaining time
+                unsigned long contractionDuration = EXTEND_TIME - contractTime; // Contract for remaining time
                 moveActuator(true);
                 moveStartTime = millis();
                 moving = true;

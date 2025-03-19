@@ -104,7 +104,7 @@ void loop() {
         if (elapsedTime >= EXTEND_TIME) {
             Serial.println("Fully Extended. Stopping Actuator.");
             stopActuator();
-            moving = false;
+            moving = true;
             stopped = true;
             contracting = true;
             contractTime = 0;
@@ -114,11 +114,11 @@ void loop() {
 
 void moveActuator(bool contract) {
     if (contract) {
-        digitalWrite(IN1, LOW);
-        digitalWrite(IN2, HIGH);
-    } else {
         digitalWrite(IN1, HIGH);
         digitalWrite(IN2, LOW);
+    } else {
+        digitalWrite(IN1, LOW);
+        digitalWrite(IN2, HIGH);
     }
 }
 

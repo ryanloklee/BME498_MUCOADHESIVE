@@ -3,8 +3,8 @@
 #define IN1 4  // Direction control
 #define IN2 5  // Direction control
 
-const unsigned long CONTRACT_TIME = 5000;  // Full contraction time
-const unsigned long EXTEND_TIME = 5000;    // Full extension time
+const unsigned long CONTRACT_TIME = 3500;  // Full contraction time
+const unsigned long EXTEND_TIME = 3500;    // Full extension time
 const unsigned long BUTTON_DEBOUNCE_TIME = 700;  // Increased debounce time to 700ms
 
 bool moving = false;
